@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+int multiply(int x, int y) {
+    if (y == 0) {
+        return 0;
+    } else if (y > 0) {
+        return x + multiply(x, y - 1);
+    } else {
+        return -multiply(x, -y);
+    }
+}
+
+int sumOfDigits(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    return (n % 10) + sumOfDigits(n / 10);
+}
+
+   void decimalToBinary(int n) {
+    if (n / 2 != 0) {
+        decimalToBinary(n / 2);
+    }
+    cout << n % 2;
+}
+int main() {
+    cout<< "Problem1 : \n"<<endl;
+    int x, y;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    int result = multiply(x, y);
+    cout << "The result of multiplication is: " << result << endl;
+    
+    cout<< "Problem2 : \n"<<endl;
+   int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    int sum = sumOfDigits(num);
+    cout << "Sum of digits: " << sum << endl; 
+    
+    
+    
+    cout<< "Problem3 : \n"<<endl;
+ 
+      int n;
+    cout << "Enter a decimal number: ";
+    cin >> n;
+    cout << "Binary equivalent: ";
+    decimalToBinary(n);
+    cout<<endl;
+    
+    
+    cout<< "Problem4 : \n"<<endl;
+    
+      int rows, cols;
+    cout << "Enter the number of rows: ";
+    cin >> rows;
+    cout << "Enter the number of columns: ";
+    cin >> cols;
+
+    int A[rows][cols];
+    cout << "Enter the elements of the matrix:" << endl;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            cin >> A[i][j];
+        }
+    }
+
+    cout << "Row-wise sum of the matrix:" << endl;
+    for (int i = 0; i < rows; ++i) {
+        int row_sum = 0;
+        for (int j = 0; j < cols; ++j) {
+            row_sum += A[i][j];
+        }
+        cout << row_sum << endl;
+    }
+    
+    cout<< "Problem5 : \n"<<endl;
+    
+      int m5, n5;
+    std::cout << "Enter the number of rows: ";
+    std::cin >> m5;
+    std::cout << "Enter the number of columns: ";
+    std::cin >> n5;
+
+    int T[m5][n5];
+    std::cout << "Enter the elements of the matrix:" << std::endl;
+    for (int i = 0; i < m5; ++i) {
+        for (int j = 0; j < n5; ++j) {
+            std::cin >> T[i][j];
+        }
+    }
+
+    std::cout << "Row-wise sum of the matrix:" << std::endl;
+    for (int i = 0; i < m5; ++i) {
+        int row_sum = 0;
+        for (int j = 0; j < n5; ++j) {
+            row_sum += T[i][j];
+        }
+        std::cout << row_sum << std::endl;
+    }
+    
+    
+    return 0;
+}
